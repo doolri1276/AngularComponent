@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CheckListComponent } from './check-list/check-list.component';
-import { CheckListResultComponent } from './check-list-result/check-list-result.component';
+import { CheckListResultComponent } from './check-list/check-list-result/check-list-result.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CheckListResultComponent } from './check-list-result/check-list-result.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
