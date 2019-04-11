@@ -10,6 +10,8 @@ export class CheckListComponent implements OnInit {
   checkList: string[];
   checkedResult: boolean[] = [];
 
+  passingValue = "hohoho";
+
   constructor() { 
     this.checkList = [
       'check list one',

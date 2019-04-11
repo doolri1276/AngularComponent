@@ -4,4 +4,4 @@
   <input type="checkbox" id="chk-{{i+1}}" [(ngModel)]="checkedResult[i]"/>
 </span>
 <button>결과 출력</button>
-<app-check-list-result></app-check-list-result>
+<app-check-list-result [passingValue]="passingValue"></app-check-list-result>

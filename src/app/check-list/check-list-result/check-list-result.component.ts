@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-check-list-result',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 //ng g component check-list-result
 export class CheckListResultComponent implements OnInit {
+  @Input() passingValue: string;
+
   checkedCnt: number;
   checkedResult: string[];
 
