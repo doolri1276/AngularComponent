@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './check-list.component.html',
   styleUrls: ['./check-list.component.css']
 })
+//ng g component check-list
 export class CheckListComponent implements OnInit {
   checkList: string[];
   checkedResult: boolean[] = [];
