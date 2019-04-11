@@ -9,8 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class CheckListComponent implements OnInit {
   checkList: string[];
   checkedResult: boolean[] = [];
-
-  passingValue = "hohoho";
+  checkedResultData: string[];
 
   constructor() { 
     this.checkList = [
@@ -23,6 +22,15 @@ export class CheckListComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  extractCheckedResult() {
+    this.checkedResultData = [];
+    this.checkedResult.forEach((isChecked, idx) => {
+      if(isChecked) {
+        this.checkedResultData.push(this.checkList[idx]);
+      }
+    });
   }
 
 }

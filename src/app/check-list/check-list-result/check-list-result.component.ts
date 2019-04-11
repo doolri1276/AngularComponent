@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-check-list-result',
@@ -7,38 +8,37 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 //ng g component check-list-result
 export class CheckListResultComponent implements OnInit {
-  @Input() passingValue: string;
+  @Input() checkedResult: string[];
 
   checkedCnt: number;
-  checkedResult: string[];
 
   constructor() { 
-    this.initResult();
-    const buttonElem = document.querySelector('button');
-    buttonElem.addEventListener('click', () => this.collectCheckedResult());
+    // this.initResult();
+    // const buttonElem = document.querySelector('button');
+    // buttonElem.addEventListener('click', () => this.collectCheckedResult());
   }
 
   ngOnInit() {
   }
 
-  private initResult() {
-    this.checkedCnt = 0;
-    this.checkedResult = [];
-  }
+  // private initResult() {
+  //   this.checkedCnt = 0;
+  //   this.checkedResult = [];
+  // }
 
-  private collectCheckedResult(){
-    this.initResult();
-    const spanElems = document.querySelectorAll('span');
-    for(let i=0;i<spanElems.length; i++){
-      const spanElem = spanElems.item(i);
+  // private collectCheckedResult(){
+  //   this.initResult();
+  //   const spanElems = document.querySelectorAll('span');
+  //   for(let i=0;i<spanElems.length; i++){
+  //     const spanElem = spanElems.item(i);
 
-      const checkboxElem = spanElem.querySelector('input');
-      if(checkboxElem.checked) {
-        this.checkedResult.push(spanElem.querySelector('label').innerText);
-      }
-    }
+  //     const checkboxElem = spanElem.querySelector('input');
+  //     if(checkboxElem.checked) {
+  //       this.checkedResult.push(spanElem.querySelector('label').innerText);
+  //     }
+  //   }
 
-    this.checkedCnt = this.checkedResult.length;
-  }
+  //   this.checkedCnt = this.checkedResult.length;
+  // }
 
 }
