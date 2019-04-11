@@ -10,6 +10,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class CheckListResultComponent implements OnInit {
   _checkedData: string[];
   checkedCnt: number;
+  @Output() onSelectedToRemoveItem = new EventEmitter<string>();
 
   constructor() { }
 
@@ -24,5 +25,9 @@ export class CheckListResultComponent implements OnInit {
 
   ngOnInit() { }
 
+  onRemove(idx) {
+    console.log("onRemove 눌렸다 : "+idx);
+    this.onSelectedToRemoveItem.emit(this._checkedData[idx]);
+  }
 
 }

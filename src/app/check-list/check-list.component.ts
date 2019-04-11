@@ -33,4 +33,13 @@ export class CheckListComponent implements OnInit {
     });
   }
 
+  removeCheckedItem(removeItem){
+    this.checkedResult.forEach((isChecked, _id) => {
+      if(isChecked && this.checkList[_id] === removeItem){
+        this.checkedResult[_id] = false;
+        this.extractCheckedResult();
+      }
+    })
+  }
+
 }
