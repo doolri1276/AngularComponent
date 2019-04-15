@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CheckItem } from 'src/app/check-item';
 
 
 @Component({
@@ -8,18 +9,25 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 //ng g component check-list-result
 export class CheckListResultComponent implements OnInit {
-  _checkedData: string[];
+  _checkedData: CheckItem[];
   checkedCnt: number;
-  @Output() onSelectedToRemoveItem = new EventEmitter<string>();
+  @Output() onSelectedToRemoveItem = new EventEmitter<number>();
 
-  constructor() { }
+  constructor() { 
+    this._checkedData = [];
+  }
 
   @Input() 
-  set checkedResult(checkedResult: string[]){
-    if(!checkedResult){
+  set checkItem(curItemEvent: CheckItem){
+    if(!curItemEvent){
       return;
     }
-    this._checkedData = checkedResult;
+
+    if(curItemEvent.isChecked){
+      this._checkedData.push(curItemEvent);
+    }else{
+      this._checkedData = this._checkedData.filter(val => val.idx !== curItemEvent.idx);
+    }
     this.checkedCnt = this._checkedData.length;
   }
 
@@ -27,7 +35,8 @@ export class CheckListResultComponent implements OnInit {
 
   onRemove(idx) {
     console.log("onRemove 눌렸다 : "+idx);
-    this.onSelectedToRemoveItem.emit(this._checkedData[idx]);
+    this.onSelectedToRemoveItem.emit(this._checkedData[idx].idx);
+    this._checkedData = this._checkedData.filter((val, _idx) => _idx !==idx);
   }
 
 }
