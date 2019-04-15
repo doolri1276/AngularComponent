@@ -13,6 +13,7 @@ export class ResultGraphComponent implements OnInit {
   constructor(public checkListDataService: CheckListDataService) { }
 
   ngOnInit() {
+    this.checkListDataService.changedCntState.subscribe(() => this.onPrintGraph());
   }
 
   onPrintGraph() {
